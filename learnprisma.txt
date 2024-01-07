@@ -1,0 +1,23 @@
+install prisma as dev and prisma client as normal dependency
+
+export prisma client instance
+(
+    On hot reload everytime new prisma client may be generated so check if you have already any prisma client running.
+    add the new made prisma client to the global variable by declare global syntax.
+    access global variable by globalThis object.
+)
+
+run prisma init command
+(
+    generate migration
+)
+
+paste db uri or whatever credentials you have and make a datasource object
+
+npx prisma generate to generate modals and typesafety locally 
+
+npx prisma db push to push model in database
+
+install prisma adapter for next auth( AuthJs ).
+
+npx prisma studio for data saved.
