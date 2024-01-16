@@ -25,6 +25,7 @@ import Link from "next/link";
 
 function LoginForm() {
   const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get('callbackurl') || "";
   const urlError =
     searchParams.get("error") === "OAuthAccountNotLinked"
       ? "Email already in use with different provider!"
@@ -48,8 +49,7 @@ function LoginForm() {
     setError("");
     setSuccess("");
     startTransition(() => {
-      console.log(values)
-      login(values)
+      login(values, callbackUrl)
         .then((res) => {
           if (res?.error) {
             form.reset();
@@ -69,8 +69,8 @@ function LoginForm() {
 
   return (
     <CardWrapper
-      backButtonHref="/auth/signin"
-      backButtonLabel="Go back to SignIn"
+      backButtonHref="/auth/register"
+      backButtonLabel="Create a new account"
       headerLabel="Two-Factor Authentication"
       showSocial={!showTwoFactor}
     >
